@@ -17,7 +17,7 @@ A native macOS system monitor written in Rust with [GPUI](https://www.gpui.rs) a
 
 ## Install
 
-Download `System-Monitor-<version>-macos-arm64.zip` from [Releases](../../releases), unzip it, and move **System Monitor.app** to `/Applications`.
+Download `System-Monitor-<version>-macos-arm64.dmg` from [Releases](../../releases), open it, and drag **System Monitor** onto the **Applications** folder.
 
 The app is ad-hoc signed but not notarized, so macOS blocks it the first time. Right-click the app, choose **Open**, then confirm. Or run:
 
@@ -33,7 +33,7 @@ You need Rust (edition 2024, so Rust 1.85 or newer) and the Xcode command line t
 
 ```sh
 cargo run --release          # run directly
-sh scripts/bundle.sh         # build target/release/System Monitor.app and a zip
+sh scripts/bundle.sh         # build target/release/System Monitor.app and a .dmg
 cargo test                   # run the tests
 ```
 
@@ -48,7 +48,7 @@ src/
   panels/        one file per panel (cpu, memory, processes, ...)
   ui/            shared widgets: graph, dial, meters, logo
 scripts/
-  bundle.sh      .app bundle, icon, ad-hoc signature, zip
+  bundle.sh      .app bundle, icon, ad-hoc signature, .dmg
 ```
 
 ## Limitations

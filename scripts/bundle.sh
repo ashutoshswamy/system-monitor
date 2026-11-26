@@ -1,5 +1,5 @@
 #!/bin/sh
-# Build a release .app with the dial icon: target/release/System Monitor.app
+# Build a release .app with the dial icon, then a drag-to-install .dmg in target/release.
 set -eu
 cd "$(dirname "$0")/.."
 
@@ -38,5 +38,14 @@ cat > "$APP/Contents/Info.plist" <<PLIST
 PLIST
 # Ad-hoc signature so Apple Silicon will launch the bundle (not notarized).
 codesign --force --deep -s - "$APP"
-ditto -c -k --keepParent "$APP" "target/release/System-Monitor-$VERSION-macos-$(uname -m).zip"
-echo "Built $APP and zip"
+
+# Drag-to-install disk image: the app beside an Applications shortcut, compressed read-only.
+DMG="target/release/System-Monitor-$VERSION-macos-$(uname -m).dmg"
+STAGE=target/dmg
+rm -rf "$STAGE" "$DMG"
+mkdir -p "$STAGE"
+cp -R "$APP" "$STAGE/"
+ln -s /Applications "$STAGE/Applications"
+hdiutil create -volname "System Monitor" -srcfolder "$STAGE" -fs HFS+ -format UDZO -ov "$DMG" >/dev/null
+codesign --force -s - "$DMG"
+echo "Built $APP and $DMG"
