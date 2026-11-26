@@ -2,7 +2,14 @@
 name = "system-monitor"
 version = "0.1.0"
 edition = "2024"
+description = "A native macOS system monitor built with GPUI"
+license = "MIT"
 
 [dependencies]
 gpui = "0.2.2"
 sysinfo = "0.40"
+
+[profile.release]
+lto = "thin"
+strip = true
+codegen-units = 1
