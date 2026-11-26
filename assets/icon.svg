@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <!-- macOS icon grid: 824px body centered on a 1024 canvas. Design drawn on a 100-unit grid. -->
+  <g transform="translate(100 100) scale(8.24)">
+    <rect x="2" y="2" width="96" height="96" rx="22" fill="#141619"/>
+    <rect x="2.5" y="2.5" width="95" height="95" rx="21.5" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+    <path d="M24.02 69 A30 30 0 1 1 75.98 69" fill="none" stroke="#2a2e34" stroke-width="7" stroke-linecap="round"/>
+    <path d="M24.02 69 A30 30 0 0 1 70.54 32.13" fill="none" stroke="#f2a33a" stroke-width="7" stroke-linecap="round"/>
+    <path d="M50 16 L50 11 M17.1 73 L12.7 75.5 M82.9 73 L87.3 75.5" stroke="#6b7079" stroke-width="2" stroke-linecap="round"/>
+    <path d="M50 54 L63.7 39.4" stroke="#ebe8e1" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="50" cy="54" r="4.5" fill="#ebe8e1"/>
+    <circle cx="50" cy="54" r="1.8" fill="#141619"/>
+  </g>
+</svg>
